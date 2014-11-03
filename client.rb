@@ -1,10 +1,14 @@
 require 'bundler'
 Bundler.require
 
+# opts = Trollop::options do
+# 	opt :ip, 'IPv4 of server', default: '127.0.0.1'
+# end
+
 context = ZMQ::Context.new
 requester = context.socket(ZMQ::REQ)
-requester.connect("tcp://localhost:7313")
-puts "sending"
+puts "sending to #{ARGV.first}"
+requester.connect("tcp://#{ARGV.first}:7313")
 
 requester.send_string "foo"
 reply = ''
