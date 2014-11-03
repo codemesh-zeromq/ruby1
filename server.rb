@@ -12,10 +12,10 @@ loop do
 	socket.recv_string(request)
 	puts "Received '#{request}'"
 	if request =~ /^hello$/i
-		socket.send_string "world (#{id})"
+		socket.send_string "world (from #{id})"
 		puts "Sending 'world'"
 	else
-		socket.send_string "nada (#{id})"
+		socket.send_string "nada (from #{id})"
 		puts "Nope"
 	end
 end
