@@ -17,7 +17,9 @@ end
 subscriber.run
 
 talker = ctx.socket(ZMQ::PUB)
-talker.connect("tcp://10.151.2.106:7315")
+(1..254).each do |address|
+  talker.connect("tcp://192.168.43.#{address}:7315")
+end
 
 loop do
 	msg = gets
