@@ -2,7 +2,7 @@
 require 'bundler'
 Bundler.require
 
-name = "julian"
+name = Etc.getlogin
 
 ctx = ZMQ::Context.new
 listener = ctx.socket(ZMQ::SUB)
