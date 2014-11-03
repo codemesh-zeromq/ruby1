@@ -6,10 +6,6 @@ socket = context.socket(ZMQ::REP)
 socket.bind("tcp://*:7313")
 id = ARGV.first
 puts "server id: #{id}"
-<<<<<<< HEAD
-=======
-
->>>>>>> 234d55165e6b32e48e213f88961cc798a6696ec2
 loop do
 	request = ''
 	socket.recv_string(request)
